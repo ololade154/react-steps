@@ -5,6 +5,16 @@ const messages = [
   'Apply for jobs 💼',
   'Invest your new income 🤑',
 ];
+function Button({ backgroundColor, textColor, onClick, children }) {
+  return (
+    <button
+      style={{ backgroundColor: backgroundColor, color: textColor }}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+}
 
 export default function App() {
   const [step, setStep] = useState(1);
@@ -32,18 +42,21 @@ export default function App() {
             Step{step}:{messages[step - 1]}
           </p>
           <div className="buttons">
-            <button
-              style={{ backgroundColor: '#7950f2', color: '#fff' }}
+            <Button
+              backgroundColor="#7950f2"
+              textColor="#fff"
               onClick={handlePrevious}
             >
-              Previous
-            </button>
-            <button
-              style={{ backgroundColor: '#7950f2', color: '#fff' }}
+              <span>👈</span> previous
+            </Button>
+
+            <Button
+              backgroundColor="#7950f2"
+              textColor="#fff"
               onClick={handleNext}
             >
-              Next
-            </button>
+              Next <span>👉</span>
+            </Button>
           </div>
         </div>
       )}
