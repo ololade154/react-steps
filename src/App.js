@@ -15,6 +15,15 @@ function Button({ backgroundColor, textColor, onClick, children }) {
     </button>
   );
 }
+function StepMesssage({ step, children }) {
+  return (
+    <div className="message">
+      <h3> Step{step}</h3>
+
+      {children}
+    </div>
+  );
+}
 
 export default function App() {
   const [step, setStep] = useState(1);
@@ -38,9 +47,7 @@ export default function App() {
             <div className={step >= 2 ? 'active' : ''}>2</div>
             <div className={step >= 3 ? 'active' : ''}>3 </div>
           </div>
-          <p className="message">
-            Step{step}:{messages[step - 1]}
-          </p>
+          <StepMesssage step={step}>{messages[step - 1]}</StepMesssage>
           <div className="buttons">
             <Button
               backgroundColor="#7950f2"
